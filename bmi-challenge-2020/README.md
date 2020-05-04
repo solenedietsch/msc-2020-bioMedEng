@@ -1,11 +1,10 @@
 # Brain Machine Interface Challenge
 Competition in the BMI course that I attended during my MSc Biomedical Engineering. The goal was to design a neural decoder to drive a hypothetical prosthetic device. 
 
-I was provided with spike trains recorded from a monkey's brain, as it repeatedly performs an arm movement task. My algorithm was expected to estimate, from these data, the precise trajectory of themonkey's hand as it reaches for the target.
+I was provided with spike trains recorded from a monkey's brain, as it repeatedly performs an arm movement task. The algorithm was expected to estimate, from these data, the precise trajectory of the monkey's hand as it reaches for the target.
 
 This is a continuous estimation task. Over the course of each spike train, our team had to estimate the X & Y
-position of the monkey's hand at each moment in time (while the training data includes the Z position,
-you are not asked to estimate it). Moreover, the decoder had to be causal, which means that it could not use information from the future to estimate the position of the hand at the present.
+position of the monkey's hand at each moment in time. Moreover, the decoder had to be causal, which means that it could not use information from the future to estimate the position of the hand in the present.
 
 ## Getting Started
 
