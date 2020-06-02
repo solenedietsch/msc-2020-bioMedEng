@@ -32,15 +32,13 @@ for i_trial = 1:nb_trials
     end
 end
 
-figure(1)
+figure(2)
 plot(time,velocities_matrix);
 avg_velocities = mean(velocities_matrix);
 hold on;
 plot(time,avg_velocities,'g','LineWidth',3);
-xlabel('Times (ms)')
-ylabel('Velocity (m/s)')
 
-figure(2)
+figure(3)
 small_duration = 310:600;
 plot(time(small_duration),avg_velocities(small_duration),'g','LineWidth',3);
 hold on;
