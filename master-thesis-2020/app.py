@@ -15,22 +15,12 @@ import plotly_express as px
 import plotly
 plotly.__version__
 
-
+from  generate_layout import *
 
 
 df = pd.read_excel('data.xlsx')
-#print(df.columns)
-#fig = px.line(df, x='time', y='Control')
-#fig.show()
-##df2 = pd.concat(df['time','Control'],df['time','Post ESCIT Basal'])
-#print(df2)
-#df['time'] = df.index
-#df_melt = pd.melt(df, id_vars="x", value_vars=df.columns[:-1])
-#px.line(df_melt, x="x", y="value",color="variable")
 
-#print(df['Control'])
-#print(df['Post ESCIT Basal'])
-#print(df['time'])
+
 def generate_table(dataframe,max_rows = 10):
     return html.Table([
             html.Thead(
@@ -89,19 +79,21 @@ def generate_upload_button():
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
-app.layout = html.Div(children=[
-        html.H4(children='Data'),
-        html.Div(id='output_container_range_slider'),
-        generate_table(df,5),
-        generate_graph1(df),
-        generate_graph2(df),
-        generate_slider(min = 0,max= 10)
-        #generate_upload_button()
-])
+app.layout = generate_layout()
 
-@app.callback(
-    dash.dependencies.Output('output_container_range_slider', 'children'),
-    [dash.dependencies.Input('range_slider', 'value')])
+# app.layout = html.Div(children=[
+#         html.H4(children='Data'),
+#         html.Div(id='output_container_range_slider'),
+#         generate_table(df,5),
+#         generate_graph1(df),
+#         generate_graph2(df),
+#         generate_slider(min = 0,max= 10)
+#         #generate_upload_button()
+# ])
+
+# @app.callback(
+#     dash.dependencies.Output('output_container_range_slider', 'children'),
+#     [dash.dependencies.Input('range_slider', 'value')])
 
 def update_output(value):
     return 'You have selected "{}"'.format(value)
