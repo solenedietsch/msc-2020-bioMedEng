@@ -425,6 +425,7 @@
     background-color: cyan;
     display: inline-block;
     box-sizing: border-box;
+    height: 500px;
 }
 
 #body_left{
