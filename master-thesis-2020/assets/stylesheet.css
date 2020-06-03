@@ -439,6 +439,13 @@
     display: block;
 }
 
+.body_left_div{
+    background-color: cyan;
+    display: block;
+    box-sizing: border-box;
+    height: 50%;
+}
+
 
 
 

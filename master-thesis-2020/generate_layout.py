@@ -31,10 +31,22 @@ def generate_left_div():
             className = 'body_div',
             id = 'body_left',
             children = [
-                "C'est ici qu'on va upload",
-                guc.generate_upload_component()
+                generate_left_top_div(),
+                generate_left_bottom_div()
                 ])                  
         
+def generate_left_top_div():
+    return html.Div(
+        className = 'body_left_div',
+        children=[
+                        "C'est ici qu'on va upload",
+                guc.generate_upload_component()
+        ]
+        )
+
+def generate_left_bottom_div():
+    return html.Div(className = 'body_left_div',
+                    children = 'La partie du left bottom')
 
 def generate_right_div():
         return html.Div(
