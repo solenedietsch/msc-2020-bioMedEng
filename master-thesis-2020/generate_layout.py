@@ -13,9 +13,9 @@ def generate_layout():
         html.Header(
             children = "My Dash application"
             ),
-        generate_body()#,
-        # html.Footer(
-        #     children = "FOOTER")
+        generate_body(),
+        html.Footer(
+            children = "FOOTER")
         ] 
         )
 
