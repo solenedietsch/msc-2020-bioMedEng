@@ -416,37 +416,56 @@
 
 
 *{
-      border: 0.5px dashed blueviolet;
-      margin: auto
+    box-sizing: border-box;
+    /*border: 1px dashed darkmagenta;*/
   }
 
   /* My contribution */
 .body_div{
-    background-color: cyan;
     display: inline-block;
     box-sizing: border-box;
-    height: 500px;
+}
+
+.body_left{
+    background-color: rgb(228, 208, 240);
+}
+.body_right{
+    background-color: rgb(18, 167, 55);
 }
 
 #body_left{
+    
     float: left;
-    width: 50%;
-    padding: 5px;
+    width: 40%;
+    display: block;
 }
 
 #body_right{
     float: right;
-    width: 50%;
+    width: 60%;
     display: block;
 }
 
 .body_left_div{
-    background-color: cyan;
     display: block;
     box-sizing: border-box;
-    height: 50%;
 }
 
+#upload-data{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px
+}
 
+header{
+    background-color: rgb(48, 7, 44);
+    color: white;
+}
+#footer{
+    clear: both;
+}
 
-
+#graph{
+    width:100%;
+    height:400px;
+}
