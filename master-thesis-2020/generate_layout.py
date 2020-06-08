@@ -12,58 +12,48 @@ import generate_right_comp as grc
 import pandas as pd
 
 def generate_layout():
-    return html.Div(children = [
+    return html.Div(
+        id = 'main_div',
+        children = [
         html.Header(
             children = html.H1(
-                'The Hashemi Lab',
+                'Hashemi Lab',
             )
         ),
         generate_body(),
         html.Footer(
-            id = "footer",
             children = "FOOTER")
         ] 
         )
 
 def generate_body():
-    return html.Div(className = 'body',
-                    children = [
-                        generate_left_div(),
-                        generate_right_div()
-        ])
+    return html.Div(
+        id = 'body_main_div',
+        children = [
+            generate_left_div(),
+            generate_right_div()
+            ]
+        )
 
 def generate_left_div():        
     return html.Div(
             className = 'body_div',
             id = 'body_left',
             children = [
-                generate_left_top_div(),
-                generate_left_bottom_div()
-                ])                  
-        
-def generate_left_top_div():
+               glc.generate_upload_component(),
+               glc.generate_name_file(),
+               glc.generate_results(df)
+                ])         
+         
+def generate_right_div():        
     return html.Div(
-        className = 'body_left_div',
-        children=[
-            glc.generate_upload_component(),
-            glc.generate_table(df),
-            ]
-        
-        )
-
-def generate_left_bottom_div():
-    return html.Div(className = 'body_left_div',
-                    children = 'La partie du left bottom')
-
-def generate_right_div():
-        return html.Div(
             className = 'body_div',
             id = 'body_right',
             children = [
                 grc.generate_graph(df),
-                grc.generate_slider(0,10)
-                ])                  
-        
+                grc.generate_tables(df)
+                ])   
+
 
 #external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 #app = dash.Dash(__name__,external_stylesheets = external_stylesheets)
