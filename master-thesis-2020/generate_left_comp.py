@@ -21,23 +21,27 @@ def generate_upload_component():
             multiple=True
         )
 
-def generate_name_file():
+def generate_name_file(dataframe):
     return html.Div(
         className = 'main_component',
         id = 'files-div',
-        children = [html.H4('Selected files'),
-                    html.P(
-                        html.Ul([
-                            html.Li('File 1'),
-                            html.Li('File 2'),
-                            html.Li('File 3'),
-                            html.Li(' ... ')
-                            ])
-                        )
+        children = [html.H4('Available files'),
+                    dcc.Checklist(
+                    options=[
+                        {'label': 'Control file 1', 'value': 'CONTROL1'},
+                        {'label': 'Post ESCIT Basal', 'value': 'POST1'},
+                        {'label': 'Control file 2', 'value': 'CONTROL2'},
+                        {'label': 'Post ESCIT Basal', 'value': 'POST2'},
+                        {'label': 'Control file 3', 'value': 'CONTROL3'},
+                        {'label': 'Post ESCIT Basal', 'value': 'POST3'}
+                    ],
+                    value=['CONTROL1', 'POST1'],
+                    )  
                     ]
         )
     
 def generate_results(dataframe):
+    
     return html.Div(
         className = 'main_component',
         id = 'results',

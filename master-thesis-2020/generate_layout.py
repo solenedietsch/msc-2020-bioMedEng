@@ -41,7 +41,7 @@ def generate_left_div():
             id = 'body_left',
             children = [
                glc.generate_upload_component(),
-               glc.generate_name_file(),
+               glc.generate_name_file(df),
                glc.generate_results(df)
                 ])         
          
