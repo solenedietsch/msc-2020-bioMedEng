@@ -110,7 +110,7 @@ def generate_a_table(dataframe,max_rows = 5,first_row = 0):
                     ),
             html.Tbody([
                     html.Tr([
-                            html.Td(np.round(dataframe.iloc[i + first_row][col],4)) for col in dataframe.columns
+                            html.Td(np.round(dataframe.iloc[i + first_row][col],3)) for col in dataframe.columns
                             ]) for i in range(min(len(dataframe),max_rows))
                         ])
                     ])
