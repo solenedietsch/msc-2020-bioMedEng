@@ -8,6 +8,7 @@ Created on Wed Jun  3 16:11:17 2020
 import dash_core_components as dcc
 import dash_html_components as html
 import numpy as np
+import data_analysis
 
 def generate_upload_component():
     return dcc.Upload(
@@ -50,15 +51,25 @@ def generate_results(dataframe):
         )
 
 def generate_table_result(dataframe):
-        return html.Table(
-            id ='result_table',
-            children=[
-                html.Thead(
-                        html.Tr([html.Th(col.capitalize()) for col in ['Parameter','Control','Post']])
-                        ),
-                html.Tbody([
-                        html.Tr([
-                                html.Td(np.round(dataframe.iloc[i][col],4)) for col in dataframe.columns
-                                ]) for i in range(min(len(dataframe),4))
-                            ])
-            ])
+    [peak_value_control,half_life_control] = data_analysis.calculate_components(dataframe,'time','Control')
+    [peak_value_post,half_life_post] = data_analysis.calculate_components(dataframe,'time','Post',3)
+    
+    return html.Table(
+        id ='result_table',
+        children=[
+            html.Thead(
+                    html.Tr([html.Th(col.capitalize()) for col in ['Parameter','Control','Post']])
+                    ),
+            html.Tbody([html.Tr([
+                html.Td('Peak value'),  
+                html.Td(np.round(peak_value_control,3)),
+                html.Td(np.round(peak_value_post,3))
+                ]),
+                html.Tr([
+                html.Td('Half life value'),  
+                html.Td(np.round(half_life_control,3)),
+                html.Td(np.round(half_life_post,3))
+                ])]
+                )
+                ])
+
