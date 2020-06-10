@@ -26,8 +26,3 @@ def calculate_components(dataframe,column1,column2,dv=0.1):
 df = pd.read_excel('data.xlsx')
 print(df)
 
-def calculate_half_life(series):
-    '''
-    This function will calculate the half_life from a specific time series
-    Input: series - a time series
-    '''
